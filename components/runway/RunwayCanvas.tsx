@@ -224,21 +224,19 @@ export default function RunwayCanvas({
               Turn pad markings
           ========================================================= */}
           <path
-            d={TURN_EDGE_MARK_PATH}
-            fill="none"
-            stroke="#FFFFFF"
-            strokeWidth="1.5"
-            opacity={0.55}
-          />
-
-          <path
-            d={TURN_GUIDE_PATH}
-            fill="none"
-            stroke="#FFFFFF"
-            strokeWidth="2.5"
-            strokeLinejoin="round"
-            opacity={0.8}
-          />
+                    d={TURN_EDGE_MARK_PATH}
+                    fill="none"
+                    stroke="#facc15"
+                    strokeWidth="1.5"
+                    opacity={0.8}
+                  />
+                  <path
+                    d={TURN_GUIDE_PATH}
+                    fill="none"
+                    stroke="#facc15"
+                    strokeWidth="2.5"
+                    strokeLinejoin="round"
+                  />
 
           {/* =========================================================
               7. Light positions
