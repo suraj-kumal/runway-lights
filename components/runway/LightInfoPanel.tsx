@@ -1,4 +1,3 @@
-
 "use client";
 
 import type { LightPosition } from "./RunwayEditor";
@@ -7,16 +6,14 @@ import { LIGHT_COLORS } from "./runwayLayout";
 
 type Props = {
   position: LightPosition | null;
+  onRemove?: () => void;
 };
 
-export default function LightInfoPanel({ position }: Props) {
+export default function LightInfoPanel({ position, onRemove }: Props) {
   if (!position) {
     return (
       <aside className="rounded-xl border border-white/15 bg-black p-4">
-        <h2 className="mb-1 font-medium text-white">
-          About this light
-        </h2>
-
+        <h2 className="mb-1 font-medium text-white">About this light</h2>
         <p className="text-xs text-white/60">
           Place a light correctly, or click a placed light, to read about it.
         </p>
@@ -28,26 +25,30 @@ export default function LightInfoPanel({ position }: Props) {
 
   return (
     <aside className="rounded-xl border border-white/15 bg-black p-4">
-      <div className="mb-3 flex items-center gap-3">
-        <span
-          className="h-5 w-5 shrink-0 rounded-full border-2 border-white/30"
-          style={{ backgroundColor: LIGHT_COLORS[position.type] }}
-        />
-
-        <div>
-          <h2 className="text-sm font-semibold text-white">
-            {info.title}
-          </h2>
-
-          <p className="text-[11px] text-white/50">
-            {info.colorName}
-          </p>
+      <div className="mb-3 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-3">
+          <span
+            className="h-5 w-5 shrink-0 rounded-full border-2 border-white/30"
+            style={{ backgroundColor: LIGHT_COLORS[position.type] }}
+          />
+          <div>
+            <h2 className="text-sm font-semibold text-white">{info.title}</h2>
+            <p className="text-[11px] text-white/50">{info.colorName}</p>
+          </div>
         </div>
+
+        {onRemove && (
+          <button
+            type="button"
+            onClick={onRemove}
+            className="shrink-0 rounded-md border border-white/15 px-2 py-1 text-[11px] text-white/70 transition hover:border-red-500/40 hover:bg-red-500/10 hover:text-red-300"
+          >
+            Remove
+          </button>
+        )}
       </div>
 
-      <p className="mb-3 text-sm text-white/80">
-        {info.summary}
-      </p>
+      <p className="mb-3 text-sm text-white/80">{info.summary}</p>
 
       <ul className="space-y-2 text-xs text-white/60">
         {info.details.map((line) => (

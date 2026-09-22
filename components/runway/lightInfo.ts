@@ -64,7 +64,7 @@ export const LIGHT_INFO: Record<LightGroup, LightInfo> = {
        "The lights mark the outer edge of the pavement so the pilot can see how much room there is, especially at night.",
        "The pilot slows down, follows the yellow line and keeps all wheels on the paved surface.",
      ],
-     note: "Amber is a training color so trainees can tell these lights apart. At real airports turn pad edges normally use blue edge lights. Confirm the color with your client.",
+     note: "Amber is a training color so trainees can tell these lights apart. At real airports turn pad edges normally use blue edge lights.",
    },
   "taxi-edge": {
     title: "Taxiway edge lights",
